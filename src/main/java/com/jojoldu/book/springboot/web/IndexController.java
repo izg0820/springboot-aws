@@ -16,7 +16,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("posts",postsService.finAllDesc());
+        model.addAttribute("posts",postsService.findAllDesc());
         return "index";
     }
 
@@ -28,7 +28,7 @@ public class IndexController {
     @GetMapping("/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
         PostsResponseDto dto = postsService.findById(id);
-        model.addAttribute("posts",dto);
+        model.addAttribute("post",dto);
 
         return "posts-update";
     }
